@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/static/css/main.4dbbdfae.chunk.css",
-    "main.js": "/static/js/main.67b17033.chunk.js",
-    "main.js.map": "/static/js/main.67b17033.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.e003bb89.js",
-    "runtime-main.js.map": "/static/js/runtime-main.e003bb89.js.map",
-    "static/js/2.d00aa1ba.chunk.js": "/static/js/2.d00aa1ba.chunk.js",
-    "static/js/2.d00aa1ba.chunk.js.map": "/static/js/2.d00aa1ba.chunk.js.map",
-    "static/css/3.3f0bdf8b.chunk.css": "/static/css/3.3f0bdf8b.chunk.css",
-    "static/js/3.f6e419d3.chunk.js": "/static/js/3.f6e419d3.chunk.js",
-    "static/js/3.f6e419d3.chunk.js.map": "/static/js/3.f6e419d3.chunk.js.map",
+    "main.js": "/static/js/main.8a832aa4.chunk.js",
+    "main.js.map": "/static/js/main.8a832aa4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.75fb16e2.js",
+    "runtime-main.js.map": "/static/js/runtime-main.75fb16e2.js.map",
+    "static/js/2.7d310c6b.chunk.js": "/static/js/2.7d310c6b.chunk.js",
+    "static/js/2.7d310c6b.chunk.js.map": "/static/js/2.7d310c6b.chunk.js.map",
+    "static/css/3.cfc31ed5.chunk.css": "/static/css/3.cfc31ed5.chunk.css",
+    "static/js/3.999f0418.chunk.js": "/static/js/3.999f0418.chunk.js",
+    "static/js/3.999f0418.chunk.js.map": "/static/js/3.999f0418.chunk.js.map",
     "static/css/4.f18eb34f.chunk.css": "/static/css/4.f18eb34f.chunk.css",
     "static/js/4.eb8da574.chunk.js": "/static/js/4.eb8da574.chunk.js",
     "static/js/4.eb8da574.chunk.js.map": "/static/js/4.eb8da574.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.5cfc6d4b706220f3c3507677c19c9ac1.js": "/precache-manifest.5cfc6d4b706220f3c3507677c19c9ac1.js",
+    "precache-manifest.1f139ed2a74db6041ce8e2fa2a74f25d.js": "/precache-manifest.1f139ed2a74db6041ce8e2fa2a74f25d.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/3.3f0bdf8b.chunk.css.map": "/static/css/3.3f0bdf8b.chunk.css.map",
+    "static/css/3.cfc31ed5.chunk.css.map": "/static/css/3.cfc31ed5.chunk.css.map",
     "static/css/4.f18eb34f.chunk.css.map": "/static/css/4.f18eb34f.chunk.css.map",
     "static/css/main.4dbbdfae.chunk.css.map": "/static/css/main.4dbbdfae.chunk.css.map",
     "static/media/MarekGrzyb_CV.pdf": "/static/media/MarekGrzyb_CV.b5640e0e.pdf",
@@ -45,10 +45,10 @@
     "static/media/vs_logo.png": "/static/media/vs_logo.76b4c6ec.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.e003bb89.js",
+    "static/js/runtime-main.75fb16e2.js",
     "static/css/4.f18eb34f.chunk.css",
     "static/js/4.eb8da574.chunk.js",
     "static/css/main.4dbbdfae.chunk.css",
-    "static/js/main.67b17033.chunk.js"
+    "static/js/main.8a832aa4.chunk.js"
   ]
 }
