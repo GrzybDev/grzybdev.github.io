@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/static/css/main.4dbbdfae.chunk.css",
-    "main.js": "/static/js/main.3b68647a.chunk.js",
-    "main.js.map": "/static/js/main.3b68647a.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.de7e9277.js",
-    "runtime-main.js.map": "/static/js/runtime-main.de7e9277.js.map",
+    "main.js": "/static/js/main.56deac85.chunk.js",
+    "main.js.map": "/static/js/main.56deac85.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.783a93ac.js",
+    "runtime-main.js.map": "/static/js/runtime-main.783a93ac.js.map",
     "static/js/2.4377b973.chunk.js": "/static/js/2.4377b973.chunk.js",
     "static/js/2.4377b973.chunk.js.map": "/static/js/2.4377b973.chunk.js.map",
-    "static/css/3.3b405e70.chunk.css": "/static/css/3.3b405e70.chunk.css",
+    "static/css/3.ccfdb565.chunk.css": "/static/css/3.ccfdb565.chunk.css",
     "static/js/3.203046c4.chunk.js": "/static/js/3.203046c4.chunk.js",
     "static/js/3.203046c4.chunk.js.map": "/static/js/3.203046c4.chunk.js.map",
     "static/css/4.841e4f22.chunk.css": "/static/css/4.841e4f22.chunk.css",
     "static/js/4.8b907bcd.chunk.js": "/static/js/4.8b907bcd.chunk.js",
     "static/js/4.8b907bcd.chunk.js.map": "/static/js/4.8b907bcd.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.dafc6bf8086a69c3332fba00e33acbaa.js": "/precache-manifest.dafc6bf8086a69c3332fba00e33acbaa.js",
+    "precache-manifest.cd92f5bed936cc71709ebca2612c96bf.js": "/precache-manifest.cd92f5bed936cc71709ebca2612c96bf.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/3.3b405e70.chunk.css.map": "/static/css/3.3b405e70.chunk.css.map",
+    "static/css/3.ccfdb565.chunk.css.map": "/static/css/3.ccfdb565.chunk.css.map",
     "static/css/4.841e4f22.chunk.css.map": "/static/css/4.841e4f22.chunk.css.map",
     "static/css/main.4dbbdfae.chunk.css.map": "/static/css/main.4dbbdfae.chunk.css.map",
     "static/js/2.4377b973.chunk.js.LICENSE.txt": "/static/js/2.4377b973.chunk.js.LICENSE.txt",
     "static/js/4.8b907bcd.chunk.js.LICENSE.txt": "/static/js/4.8b907bcd.chunk.js.LICENSE.txt",
-    "static/media/MarekGrzyb_CV.pdf": "/static/media/MarekGrzyb_CV.0042bfe1.pdf",
+    "static/media/MarekGrzyb_CV.pdf": "/static/media/MarekGrzyb_CV.af630d8f.pdf",
     "static/media/androidstudio_logo.png": "/static/media/androidstudio_logo.19f41746.png",
     "static/media/mdb.css": "/static/media/arrow_right.8ef6a08c.svg",
     "static/media/aws_logo.png": "/static/media/aws_logo.25534704.png",
@@ -47,10 +47,10 @@
     "static/media/vs_logo.png": "/static/media/vs_logo.76b4c6ec.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.de7e9277.js",
+    "static/js/runtime-main.783a93ac.js",
     "static/css/4.841e4f22.chunk.css",
     "static/js/4.8b907bcd.chunk.js",
     "static/css/main.4dbbdfae.chunk.css",
-    "static/js/main.3b68647a.chunk.js"
+    "static/js/main.56deac85.chunk.js"
   ]
 }
