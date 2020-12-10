@@ -1,0 +1,127 @@
+#landing {
+    align-items: center;
+    display: flex;
+    font-family: 'Skanji', cursive;
+    height: 100vh;
+    justify-content: center;
+    text-align: center;
+}
+
+#landing .selfie {
+    border-radius: 25%;
+    height: 350px;
+    width: 250px;
+}
+
+#landing .sign {
+    align-items: center;
+    animation-name: leftSectionDesc;
+    animation-duration: 1s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+}
+
+#landing .left {
+    animation-name: leftSection;
+    animation-duration: 1s;
+    animation-delay: 500ms;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+#landing .right {
+    align-items: center;
+    animation-name: rightSection;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    margin-left: 32px;
+    opacity: 0;
+}
+
+#landing .title {
+    font-family: 'Galindo', cursive;
+    font-weight: bold;
+    margin-block-end: 4px;
+}
+
+#landing .desc {
+    animation-name: rightSectionDesc;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    font-family: 'Lato', sans-serif;
+    margin-top: 32px;
+    opacity: 0;
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    #landing {
+        flex-direction: column-reverse;
+    }
+
+    #landing .left {
+        padding-top: 32px;
+    }
+
+    #landing .right {
+        margin-left: unset;
+    }
+
+    #landing .selfie {
+        height: 250px;
+        width: 175px;
+    }
+}
+
+@keyframes leftSection {
+    from {
+        opacity: 0;
+        transform: translateX(-250px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes leftSectionDesc {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes rightSection {
+    from {
+        opacity: 0;
+        transform: translateX(250px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes rightSectionDesc {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
