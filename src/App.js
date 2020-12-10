@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import Particles from "react-particles-js";
+import particlesConfig from "./config/particles.json";
+import "./App.css";
+import Landing from "./sections/Landing";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  <main>
+    <Particles className="bgParticles" height="100vh" width="100vw" params={particlesConfig} />
+
+    <div id="PageContent">
+      <Landing />
     </div>
-  );
+  </main>);
 }
 
 export default App;
