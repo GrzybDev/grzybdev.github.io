@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Galindo|Lato|Open+Sans|Skranji&display=swap');
+
 html, body {
     background: #263238;
     color: white;
+    margin: 0;
 }
