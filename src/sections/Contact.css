@@ -1,0 +1,40 @@
+#contact {
+    background-color: rgba(33, 33, 33, 0.5);
+    text-align: center;
+}
+
+#contact .sectionTitle {
+    font-size: 2rem;
+    font-family: 'Galindo', cursive;
+}
+
+#contact .sectionTitle h1 {
+    margin-top: 0px;
+    padding-top: 16px;
+    margin-bottom: 0px;
+}
+
+#contact .SocialIcons svg {
+    color: white;
+    margin: 0px 24px;
+    transition-duration: 500ms;
+}
+
+#contact .SocialIcons svg:hover {
+    color: #9E9E9E;
+}
+
+footer {
+    background-color: rgba(33, 150, 243, 0.5);
+    margin-top: 16px;
+}
+
+.footer-copyright {
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+}
+
+.footer-copyright.Visible {
+    opacity: 1;
+}
