@@ -1,0 +1,126 @@
+#projects {
+    background-color: rgba(33, 33, 33, 0.75);
+    text-align: center;
+}
+
+#projects .sectionTitle {
+    font-size: 2rem;
+    font-family: 'Galindo', cursive;
+}
+
+#projects .sectionTitle h1 {
+    margin-top: 0px;
+    padding-top: 16px;
+    margin-bottom: 0px;
+}
+
+#projects .sectionDesc a {
+    color: white;
+    font-weight: bold;
+}
+
+#projects .subsection .title {
+    font-size: 40px;
+}
+
+#projects .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+#projects .entry {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#projects .entry .tile {
+    height: 350px;
+    width: 350px;
+    border: 1.8px solid;
+    border-radius: 5px;
+    background-size: cover;
+    font-family: "Open Sans", sans-serif;
+    overflow: hidden;
+    position: relative;
+    transition-duration: 300ms;
+    cursor: pointer;
+}
+
+#projects .entry .tile .bg {
+    position: absolute;
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition-duration: 300ms;
+    height: 350px;
+    width: 350px;
+}
+
+#projects .entry .tile:hover {
+    border-color: #94c1e4;
+}
+
+#projects .entry .tile .bg:hover {
+    transform: scale(1.1);
+}
+
+#projects .entry .tile .tileTitle {
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 350px;
+}
+
+#projects .entry .badges {
+    display: flex;
+    margin-top: 8px;
+}
+
+#projects .entry .badge {
+    border-radius: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+#projects .entry .shortDescription {
+    margin-top: 16px;
+}
+
+#projects .entry .highlights {
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    #projects .entry .tile {
+        height: 250px;
+        width: 250px;
+    }
+
+    #projects .entry .tile .bg {
+        height: 250px;
+        width: 250px;
+    }
+
+    #projects .entry .tile .tileTitle {
+        width: 250px;
+    }
+}
