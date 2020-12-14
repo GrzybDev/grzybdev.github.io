@@ -1,0 +1,149 @@
+#experience {
+    background-color: rgba(0, 105, 92, 0.5);
+    text-align: center;
+}
+
+#experience hr {
+    width: 75%;
+}
+
+#experience .sectionSeparator {
+    width: 90%;
+}
+
+#experience .jobStatus {
+    background-color: rgba(18, 51, 84, 0.5);
+    font-family: 'Galindo', cursive;
+    font-weight: bold;
+    font-size: 2rem;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+#experience .sectionTitle {
+    font-size: 2rem;
+    font-family: 'Galindo', cursive;
+}
+
+#experience .sectionTitle h1 {
+    margin-bottom: 0px;
+}
+
+#experience .sectionDesc a {
+    color: white;
+    font-weight: bold;
+}
+
+#experience .title {
+    font-family: 'Galindo', cursive;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+#experience .content {
+    align-items: center;
+    display: flex;
+    margin-left: 64px;
+    margin-right: 64px;
+    justify-content: center;
+}
+
+#experience .content .left {
+    padding-right: 32px;
+    height: 100%;
+    width: 100%
+}
+
+#experience .content .characteristic {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#experience .content .characteristic .desc {
+    font-family: "Lato", sans-serif;
+    font-size: 13pt;
+    text-align: justify;
+    width: 100%;
+}
+
+#experience .content .right {
+    border-left: 2px solid white;
+    height: 100%;
+    padding-left: 32px;
+    width: 100%;
+}
+
+#experience .content .characteristic .lang {
+    display: flex;
+    padding-bottom: 16px;
+    width: 100%;
+}
+
+#experience .content .characteristic .lang p {
+    margin-left: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#experience .content .characteristic .list {
+    text-align: center;
+}
+
+#experience .content .characteristic .list a {
+    color: white;
+    font-weight: bold;
+    padding-bottom: 8px;
+}
+
+#experience .content .characteristic .list p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#experience .content .characteristic .list ul {
+    text-align: left;
+}
+
+#experience .counters {
+    background: rgba(57, 73, 171, 0.75);
+    color: white;
+    height: 200px;
+    width: 100%
+}
+
+#experience .counters .bg {
+    position: absolute;
+}
+
+#experience .counters .main {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+#experience .counterIcon {
+    align-items: center;
+    border: 4px white solid;
+    border-radius: 50%;
+    display: flex;
+    margin-top: 16px;
+    height: 64px;
+    justify-content: center;
+    width: 64px;
+}
+
+@media (max-width: 768px) {
+    #experience .content {
+        flex-direction: column;
+    }
+
+    #experience .content .left {
+        padding-right: unset;
+    }
+
+    #experience .content .right {
+        border-left: unset;
+        padding-left: unset;
+    }
+}
