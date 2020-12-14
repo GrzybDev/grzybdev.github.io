@@ -38,14 +38,34 @@
     animation-duration: 1s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
-    margin-left: 32px;
+    margin-left: 64px;
     opacity: 0;
 }
 
 #landing .title {
+    cursor: pointer;
     font-family: 'Galindo', cursive;
     font-weight: bold;
+    font-size: 2.5rem;
     margin-block-end: 4px;
+    height: 72px;
+    width: 295px;
+}
+
+#landing .title .animatedLetter {
+    transition-duration: 250ms;
+}
+
+#landing .title .animatedLetter:hover {
+    color: #f44336;
+    font-size: 3rem;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#landing .proffesions {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 #landing .desc {
@@ -124,4 +144,28 @@
         opacity: 1;
         transform: translateY(0px);
     }
+}
+
+nav {
+    align-items: center;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    bottom: 16px;
+}
+
+.browsePage {
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 12px;
+    transition-duration: 250ms;
+    margin: 8px;
+}
+
+.browsePage:hover {
+    border-color: red;
+    background-color: red;
 }
