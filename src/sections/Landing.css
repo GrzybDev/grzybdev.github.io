@@ -145,27 +145,3 @@
         transform: translateY(0px);
     }
 }
-
-nav {
-    align-items: center;
-    position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    bottom: 16px;
-}
-
-.browsePage {
-    color: white;
-    text-decoration: none;
-    border: 1px solid white;
-    border-radius: 8px;
-    padding: 12px;
-    transition-duration: 250ms;
-    margin: 8px;
-}
-
-.browsePage:hover {
-    border-color: red;
-    background-color: red;
-}

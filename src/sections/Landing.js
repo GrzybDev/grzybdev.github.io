@@ -1,4 +1,4 @@
-import { faArrowDown, faCode, faIdCard, faLevelUpAlt, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faLevelUpAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactTyped from 'react-typed';
 import "./Landing.css";
@@ -29,12 +29,6 @@ class Landing extends Component {
                     <ReactTyped className="proffesions" strings={["Lorem ipsum", "Ipsum sum"]} typeSpeed={40} backSpeed={50} backDelay={1000} cursorChar="_" loop/>
                     <p className="desc" dangerouslySetInnerHTML={{ __html: "Lorem ipsum" }} />
                 </div>
-                
-                <nav>
-                <a className="browsePage" href="#experience">See what I can do <FontAwesomeIcon icon={faStar} /></a>
-                <a className="browsePage" href="#projects">See what I have done <FontAwesomeIcon icon={faCode} /></a>
-                <a className="browsePage" href="#contact">Contact me <FontAwesomeIcon icon={faIdCard} /></a>
-                </nav>
             </section>
         )
     }
