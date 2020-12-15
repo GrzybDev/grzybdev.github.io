@@ -1,6 +1,7 @@
 #projects {
     background-color: rgba(33, 33, 33, 0.75);
     text-align: center;
+    padding-bottom: 32px;
 }
 
 #projects .sectionTitle {
