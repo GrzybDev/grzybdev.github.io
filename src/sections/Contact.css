@@ -14,6 +14,13 @@
     margin-bottom: 0px;
 }
 
+#contact .sectionDesc {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 #contact .SocialIcons svg {
     color: white;
     margin: 0px 24px;
@@ -25,8 +32,8 @@
 }
 
 footer {
-    background-color: rgba(33, 150, 243, 0.5);
-    margin-top: 16px;
+    background-color: rgba(33, 150, 243, 0.25);
+    margin-top: 32px;
 }
 
 .footer-copyright {
@@ -37,4 +44,134 @@ footer {
 
 .footer-copyright.Visible {
     opacity: 1;
+}
+
+form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 32px;
+    width: 500px;
+}
+
+.form-input {
+    margin: 16px 0;
+    width: 100%;
+}
+
+.form-input label {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 45px;
+}
+
+.form-input .placeholder {
+    position: absolute;
+    display: block;
+    top: 23px;
+    z-index: 2;
+    font-size: 16px;
+    transition: all 200ms ease-in-out;
+    width: 100%;
+    cursor: text;
+}
+
+.form-input input, .form-input textarea {
+    position: absolute;
+    top: 15px;
+    z-index: 1;
+    width: 100%;
+    font-size: 16px;
+    border: 0;
+    border-bottom: 1px solid grey;
+    transition: border-color 200ms ease-in-out;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.form-input textarea {
+    color: white;
+    min-height: 30px;
+    padding: 8px 0;
+    resize: none;
+}
+
+.form-input input {
+    color: white;
+    height: 30px;
+}
+
+.form-input input:focus, .form-input input:valid, .form-input textarea:focus, .form-input textarea:valid {
+    border-bottom: 2px solid #e53935;
+}
+
+.form-input input:focus+.placeholder, .form-input input:valid+.placeholder, .form-input textarea:focus+.placeholder, .form-input textarea:valid+.placeholder {
+    top: 0;
+    cursor: inherit;
+    font-size: 14px;
+    color: #e53935;
+}
+
+.formGroup {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.formGroup .name {
+    margin-right: 16px;
+}
+
+.message {
+    height: 220px;
+}
+
+.submitBtn {
+    margin-top: 16px;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    padding: 0 16px;
+    min-width: 64px;
+    height: 36px;
+    vertical-align: middle;
+    text-align: center;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
+    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 36px;
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+
+.submitBtn::-moz-focus-inner {
+    border: none;
+}
+
+/* Overlay */
+.submitBtn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
+    opacity: 0;
+    transition: opacity 0.2s;
 }
