@@ -7,13 +7,29 @@ import "./Contact.css";
 class Contact extends Component {
 
     state = {
-        csrfToken: ""
+        formScale: 1
     }
 
     getCopyrightYear(startYear) {
         const currentYear = moment().year();
 
         return `${startYear.toString()} ${currentYear > startYear ? `- ${currentYear.toString()}` : ""}`
+    }
+
+    componentDidMount() {
+        window.addEventListener("resize", this.onResize.bind(this));
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.onResize.bind(this));
+    }
+
+    onResize() {
+        if (window.innerWidth <= 534) {
+            this.setState({ formScale: window.innerWidth / 534 })
+        } else {
+            this.setState({ formScale: 1 })
+        }
     }
 
     render() {
@@ -26,40 +42,7 @@ class Contact extends Component {
                 <div className="sectionDesc">
                     <p dangerouslySetInnerHTML={{ __html: "Lorem ipsum" }} />
 
-                    <form method="POST" action="/test">
-                        <input type="hidden" name="_csrf" value={this.state.csrfToken} />
-
-                        <div className="formGroup">
-                            <div class="form-input name">
-                                <label>
-                                    <input type="text" required name="name" />
-                                    <span class="placeholder">Name</span>
-                                </label>
-                            </div>
-                            <div class="form-input">
-                                <label>
-                                    <input type="text" required name="lastname" />
-                                    <span class="placeholder">Last name</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-input">
-                            <label>
-                                <input type="text" required name="title" />
-                                <span class="placeholder">Title</span>
-                            </label>
-                        </div>
-
-                        <div class="form-input message">
-                            <label>
-                                <textarea rows="10" required name="message"/>
-                                <span class="placeholder message">Message</span>
-                            </label>
-                        </div>
-
-                        <input type="submit" className="submitBtn" />
-                    </form>
+                    <iframe src="http://localhost:8080/form/portfolio" title="formContact" className="contactForm" style={{transform: `scale(${this.state.formScale})`}} />
 
                     <p className="socialText">Lorem ipsum</p>
 
