@@ -26,7 +26,7 @@ class Landing extends Component {
 
                 <div className="right">
                     <h1 className="title">{this.getName()}</h1>
-                    <ReactTyped className="proffesions" strings={["Lorem ipsum", "Ipsum sum"]} typeSpeed={40} backSpeed={50} backDelay={1000} cursorChar="_" loop/>
+                    <ReactTyped className="proffesions" strings={["Lorem ipsum", "Ipsum sum"]} typeSpeed={40} backSpeed={50} backDelay={2000} cursorChar="_" loop/>
                     <p className="desc" dangerouslySetInnerHTML={{ __html: "Lorem ipsum" }} />
                 </div>
             </section>
