@@ -1,5 +1,6 @@
 import MDSpinner from "react-md-spinner";
 import "./Preloader.css";
+import { API_SERVER } from "../config";
 const { Component } = require("react");
 
 class Preloader extends Component {
@@ -10,12 +11,18 @@ class Preloader extends Component {
     }
 
     componentDidMount() {
-        this.setState({loaded: true});
-        setTimeout(this.hidePreloader.bind(this), 500);
+        fetch(`${API_SERVER}/portfolio/common`)
+            .then(response => response.json())
+            .then(data => {
+                this.props.handler("common", data);
+                this.hidePreloader();
+            });
     }
+    
 
     hidePreloader() {
-        this.setState({addClass: "hidden"});
+        this.setState({ loaded: true });
+        setTimeout(() => this.setState({ addClass: "hidden" }), 500);
     }
 
     render() {

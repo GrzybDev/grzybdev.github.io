@@ -64,11 +64,9 @@ nav .hamburger {
         transition-duration: 500ms;
         z-index: -1;
     }
-
     nav .sections.active {
-        top: 64px;
+        top: 44px;
     }
-
     nav .sections a {
         align-items: center;
         display: flex;
@@ -77,16 +75,19 @@ nav .hamburger {
         padding-left: 32px;
         width: 100vw;
     }
-
     nav .sections a:hover {
         background-color: rgb(17, 17, 17);
     }
-
+    nav .branding {
+        display: none;
+    }
     nav .hamburger {
         display: block;
+        position: fixed;
+        left: 32px;
+        top: 16px;
         transition-duration: 500ms;
     }
-
     nav .hamburger.active {
         transform: rotate(90deg);
     }

@@ -1,4 +1,3 @@
-import { faBars, faCode, faDog, faHome, faIdCard, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Component } from "react";
 import "./Navbar.css";
@@ -6,6 +5,9 @@ import "./Navbar.css";
 class Navbar extends Component {
 
     state = {
+        brand: "",
+        entries: [],
+        hamburgerIcon: "",
         navbarStatus: "",
         navbarTransparency: ""
     }
@@ -23,51 +25,49 @@ class Navbar extends Component {
 
         if (scrollTop !== 0 && this.state.navbarTransparency !== "focus") {
             this.setState({ navbarTransparency: "focus" });
-        } else if (scrollTop === 0) {
+        } else if (scrollTop === 0 && this.state.navbarStatus !== "active") {
             this.setState({ navbarTransparency: "" })
         }
     }
 
     toggleNavbar() {
         if (this.state.navbarStatus !== "active")
-            this.setState({ navbarStatus: "active" });
+            this.setState({ navbarStatus: "active", navbarTransparency: "focus" });
         else
             this.setState({ navbarStatus: "" });
     }
 
+    applyData(data) {
+        this.setState({
+            brand: data.personal.name,
+            entries: data.site.sections,
+            hamburgerIcon: data.site.texts.hamburger_icon
+        });
+    }
+
     render() {
+        const entries = this.state.entries.map((value, index) => (
+            <li key={index}>
+                <a href={value.url}>
+                    <FontAwesomeIcon icon={value.icon} />
+                    {value.name}
+                </a>
+            </li>
+        ));
+
+        if (this.state.brand === "" || this.state.brand === null) return null;
+
         return (
             <nav className={this.state.navbarTransparency}>
-                <ul>
-                    <li className={`sections ${this.state.navbarStatus}`}>
-                        <a href="#landing">
-                            <FontAwesomeIcon icon={faHome} />
-                            Home
-                        </a>
-                        <a href="#landing">
-                            <FontAwesomeIcon icon={faStar} />
-                            Experience
-                        </a>
-                        <a href="#landing">
-                            <FontAwesomeIcon icon={faCode} />
-                            Projects
-                        </a>
-                        <a href="#landing">
-                            <FontAwesomeIcon icon={faIdCard} />
-                            Contact
-                        </a>
-                        <a href="#landing">
-                            <FontAwesomeIcon icon={faDog} />
-                            Resume
-                        </a>
-                    </li>
+                <ul className={`sections ${this.state.navbarStatus}`}>
+                    {entries}
                     <li className="branding">
                         <a href="#landing">
-                            Marek Grzyb
+                            {this.state.brand}
                         </a>
                     </li>
                     <li className={`hamburger ${this.state.navbarStatus}`} onClick={() => this.toggleNavbar()}>
-                        <FontAwesomeIcon icon={faBars}/>
+                        <FontAwesomeIcon icon={this.state.hamburgerIcon} />
                     </li>
                 </ul>
             </nav>

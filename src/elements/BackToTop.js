@@ -1,4 +1,3 @@
-import { faArrowCircleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Component } from "react";
 import "./BackToTop.css";
@@ -6,6 +5,7 @@ import "./BackToTop.css";
 class BackToTop extends Component {
 
     state = {
+        icon: "",
         visibility: ""
     }
 
@@ -27,8 +27,16 @@ class BackToTop extends Component {
         }
     }
 
+    applyData(data) {
+        this.setState({
+            icon: data.site.texts.back_to_top_icon
+        });
+    }
+
     render() {
-        return <FontAwesomeIcon icon={faArrowCircleUp} className={`BackToTop ${this.state.visibility}`} size="2x" onClick={() => window.scrollTo(0, 0)} />
+        if (this.state.icon === "") return null;
+
+        return <FontAwesomeIcon icon={this.state.icon} className={`BackToTop ${this.state.visibility}`} size="2x" onClick={() => window.scrollTo(0, 0)} />
     }
 }
 
