@@ -4,6 +4,9 @@
 }
 
 #PageContent {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     position: absolute;
     z-index: 1;
