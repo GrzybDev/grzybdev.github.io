@@ -42,7 +42,7 @@ class Contact extends Component {
                 <div className="sectionDesc">
                     <p dangerouslySetInnerHTML={{ __html: "Lorem ipsum" }} />
 
-                    <iframe src="http://localhost:8080/form/portfolio" title="formContact" className="contactForm" style={{transform: `scale(${this.state.formScale})`}} />
+                    <iframe src="http://localhost:8080/form/portfolio" title="formContact" className="contactForm" style={{ transform: `scale(${this.state.formScale})` }} />
 
                     <p className="socialText">Lorem ipsum</p>
 
