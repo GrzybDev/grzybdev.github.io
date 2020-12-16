@@ -5,172 +5,121 @@ import Particles from "react-particles-js";
 import "./Experience.css"
 
 class Experience extends Component {
+
+    state = {
+        jobStatus: "",
+        sectionName: "",
+        sectionDesc: "",
+        characteristic: [],
+        data: []
+    }
+
+    applyData(data, id) {
+        this.setState({
+            jobStatus: data.personal.jobStatus,
+            sectionName: data.site.sections[id].name,
+            sectionDesc: data.site.sections[id].description,
+            characteristic: data.experience.characteristic,
+            data: data.experience.data
+        });
+    }
+
+    getSubsection(id) {        
+        return this.state.data[id].list.map((entry, index) => (
+            <div className="lang" key={index}>
+                <img src={entry.icon} alt={entry.name} />
+                <p>{entry.name}</p>
+                <p className="status">{entry.status}</p>
+            </div>
+        ));
+    }
+
+    getEntries(id) {
+        if (!this.state.characteristic[id].list) return null;
+
+        this.state.characteristic[id].list.reverse();
+
+        return this.state.characteristic[id].list.map((entry, index) => (
+            <div className="entry" key={index}>
+                <p>
+                    <a href={entry.url}>{entry.title}</a>
+                    <br /><br />
+                    {this.renderDate(entry)}
+                    <span dangerouslySetInnerHTML={{ __html: entry.description }} />
+                </p>
+
+                <ul>
+                    {this.getFeatures(id, index)}
+                </ul>
+            </div>
+        ))
+    }
+
+    getFeatures(entry, id) {
+        return this.state.characteristic[entry].list[id].points.map((e, i) => (<li key={i}>{e}</li>))
+    }
+
+    renderDate(data) {
+        if (data.from) {
+            return data.to ? `${data.from} - ${data.to}` : `${data.from} - Currently`
+        }
+    }
+
     render() {
+        if (this.state.sectionName === "") return null;
+
+        const characteristic = this.state.characteristic.map((entry, index) => (
+            <div className="characteristic" key={index}>
+                <div className="title">
+                    <p>{entry.title}</p>
+                </div>
+
+                <div className="desc">
+                    <p dangerouslySetInnerHTML={{ __html: entry.description }} />
+                    {this.getEntries(index)}
+                </div>
+
+                {entry.disableLine ? null : <hr/>}
+            </div>
+        ));
+
+        const data = this.state.data.map((entry, index) => (
+            <div className="characteristic" key={index}>
+                <div className="title">
+                    <p>{entry.name}</p>
+                </div>
+
+                <div className="desc">
+                    {this.getSubsection(index)}
+                </div>
+
+                <hr />
+            </div>
+        ));
+
         return (
             <section id="experience">
                 <div className="jobStatus">
-                    <p>Currently unemployed</p>
+                    <p dangerouslySetInnerHTML={{ __html: this.state.jobStatus }} />
                 </div>
 
                 <div className="sectionTitle">
-                    <h1>Experience</h1>
+                    <h1>{this.state.sectionName}</h1>
                 </div>
 
                 <div className="sectionDesc">
-                    <p>You can also view my resume (in PDF) <a href="#resume">here</a></p>
+                    <p dangerouslySetInnerHTML={{ __html: this.state.sectionDesc }} />
                 </div>
 
                 <br />
 
                 <div className="content">
                     <div className="left">
-                        <div className="characteristic">
-                            <div className="title">
-                                <p>Game Development</p>
-                            </div>
-
-                            <div className="desc">
-                                <p>There is no part of the game development pipeline that I have not touched, and while every aspect of it is fun, I particularly enjoy network and gameplay programming.</p>
-                            </div>
-                        </div>
-
-                        <hr />
-
-                        <div className="characteristic">
-                            <div className="title">
-                                <p>Programming</p>
-                            </div>
-
-                            <div className="desc">
-                                <p>I love making useful apps, services and solutions. For me it is fun, while my focus is on game development, I am also making prototypes of services, scripts, and other things that can make my (and your!) life easier.</p>
-                            </div>
-                        </div>
+                        {characteristic}
                     </div>
 
                     <div className="right">
-                        <div className="characteristic">
-                            <div className="title">
-                                <p>Human Languages</p>
-                            </div>
-
-                            <div className="desc">
-                                <div className="lang">
-                                    <img src="#TODO" alt="Language" />
-                                    <p>Somewhat experienced</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr />
-
-                        <div className="characteristic">
-                            <div className="title">
-                                <p>Programming Languages</p>
-                            </div>
-
-                            <div className="desc">
-                                <div className="lang">
-                                    <img src="#TODO" alt="Language" />
-                                    <p>Somewhat experienced</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div className="characteristic">
-                            <div className="title">
-                                <p>Game Engines</p>
-                            </div>
-
-                            <div className="desc">
-                                <div className="lang">
-                                    <img src="#TODO" alt="Language" />
-                                    <p>Somewhat experienced</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr />
-
-                        <div className="characteristic">
-                            <div className="title">
-                                <p>Services</p>
-                            </div>
-
-                            <div className="desc">
-                                <div className="lang">
-                                    <img src="#TODO" alt="service" />
-                                    <p>Somewhat experienced</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr />
-
-                        <div className="characteristic">
-                            <div className="title">
-                                <p>Software</p>
-                            </div>
-
-                            <div className="desc">
-                                <div className="lang">
-                                    <img src="#TODO" alt="logo" />
-                                    <p>Somewhat experienced</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <hr className="sectionSeparator" />
-
-                <div className="content">
-                    <div className="left">
-                        <div className="characteristic">
-                            <div className="title">
-                                <p>Working Experience</p>
-                            </div>
-
-                            <div className="desc">
-                                <div className="list">
-                                    <p>
-                                        <a href="#TODO">PeCet Serwis</a>
-                                        <br /><br />
-                                    Function: <b>IT Technician</b><br />
-                                    One month long apprenticeship required from High School
-                                    </p>
-
-                                    <ul>
-                                        <li>Installing and configuring operating systems and applications</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="right">
-                        <div className="left">
-                            <div className="characteristic">
-                                <div className="title">
-                                    <p>Education</p>
-                                </div>
-
-                                <div className="desc">
-                                    <div className="list">
-                                        <p>
-                                            <a href="#TODO">PeCet Serwis</a>
-                                            <br /><br />
-                                    Function: <b>IT Technician</b><br />
-                                    One month long apprenticeship required from High School
-                                    </p>
-
-                                        <ul>
-                                            <li>Installing and configuring operating systems and applications</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {data}
                     </div>
                 </div>
 

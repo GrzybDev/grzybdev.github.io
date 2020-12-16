@@ -68,6 +68,10 @@
     width: 100%;
 }
 
+#experience .content .characteristic .desc hr {
+    margin-top: 32px;
+}
+
 #experience .content .right {
     border-left: 2px solid white;
     height: 100%;
@@ -82,27 +86,40 @@
 }
 
 #experience .content .characteristic .lang p {
-    margin-left: auto;
+    margin-left: 16px;
     margin-top: 0px;
     margin-bottom: 0px;
+    font-weight: bold;
 }
 
-#experience .content .characteristic .list {
+#experience .content .characteristic .lang .status {
+    margin-left: auto;
+    font-weight: unset;
+}
+
+#experience .content .characteristic .lang img {
+    width: 32px;
+}
+
+#experience .content .characteristic .entry {
+    border: solid 1px white;
+    padding-top: 16px;
+    padding-bottom: 16px;
     text-align: center;
 }
 
-#experience .content .characteristic .list a {
+#experience .content .characteristic .entry a {
     color: white;
     font-weight: bold;
     padding-bottom: 8px;
 }
 
-#experience .content .characteristic .list p {
+#experience .content .characteristic .entry p {
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
-#experience .content .characteristic .list ul {
+#experience .content .characteristic .entry ul {
     text-align: left;
 }
 
@@ -122,6 +139,7 @@
     display: flex;
     justify-content: center;
 }
+
 #experience .counterIcon {
     align-items: center;
     border: 4px white solid;
@@ -137,11 +155,9 @@
     #experience .content {
         flex-direction: column;
     }
-
     #experience .content .left {
         padding-right: unset;
     }
-
     #experience .content .right {
         border-left: unset;
         padding-left: unset;
