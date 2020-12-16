@@ -5,6 +5,7 @@
     height: 100vh;
     justify-content: center;
     text-align: center;
+    width: 75%;
 }
 
 #landing .selfie {
@@ -30,6 +31,7 @@
     animation-delay: 500ms;
     animation-fill-mode: forwards;
     opacity: 0;
+    width: 100%;
 }
 
 #landing .right {
@@ -38,8 +40,11 @@
     animation-duration: 1s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
-    margin-left: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     opacity: 0;
+    width: 100%;
 }
 
 #landing .title {
@@ -77,21 +82,37 @@
     margin-top: 32px;
     opacity: 0;
     text-align: justify;
+    width: 75%;
+}
+
+#landing .desc a {
+    color: rgba(255, 255, 255, 1);
+    border-bottom: dashed 1px white;
+    text-decoration: none;
+    transition-duration: 250ms;
+}
+
+#landing .desc a:hover {
+    border-bottom: dotted 1px white;
+    color: hsla(0, 0%, 100%, .75);
 }
 
 @media (max-width: 768px) {
     #landing {
-        flex-direction: column-reverse;
+        flex-direction: column;
+        height: 100%;
+        padding-top: 64px;
+        width: 90%
     }
-
     #landing .left {
         padding-top: 32px;
     }
-
     #landing .right {
         margin-left: unset;
     }
-
+    #landing .right .desc {
+        width: 90%;
+    }
     #landing .selfie {
         height: 250px;
         width: 175px;
@@ -103,7 +124,6 @@
         opacity: 0;
         transform: translateX(-250px);
     }
-
     to {
         opacity: 1;
         transform: translateX(0px);
@@ -115,7 +135,6 @@
         opacity: 0;
         transform: translateY(-50px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0px);
@@ -127,7 +146,6 @@
         opacity: 0;
         transform: translateX(250px);
     }
-
     to {
         opacity: 1;
         transform: translateX(0px);
@@ -139,7 +157,6 @@
         opacity: 0;
         transform: translateY(50px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0px);
