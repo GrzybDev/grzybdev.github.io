@@ -22,7 +22,7 @@ class Projects extends Component {
                         <FontAwesomeIcon icon={faUser} />&nbsp;Personal Projects&nbsp;<FontAwesomeIcon icon={faUser} />
                     </div>
 
-                    <br/>
+                    <br />
 
                     <div className="list">
                         <div className="entry">
