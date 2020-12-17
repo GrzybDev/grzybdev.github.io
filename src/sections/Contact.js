@@ -1,4 +1,4 @@
-import { faCopyright, faUserAltSlash } from "@fortawesome/free-solid-svg-icons";
+import { faCopyright } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Component } from "react";
 import moment from "moment";
@@ -7,7 +7,14 @@ import "./Contact.css";
 class Contact extends Component {
 
     state = {
-        formScale: 1
+        brand: "",
+        copyYear: 0,
+        formScale: 1,
+        sectionName: "",
+        sectionDesc: "",
+        contactFormUrl: "",
+        socialText: "",
+        socials: []
     }
 
     getCopyrightYear(startYear) {
@@ -16,8 +23,21 @@ class Contact extends Component {
         return `${startYear.toString()} ${currentYear > startYear ? `- ${currentYear.toString()}` : ""}`
     }
 
+    applyData(data, id) {
+        this.setState({
+            brand: data.personal.name,
+            copyYear: data.common.copyright,
+            sectionName: data.common.sections[id].name,
+            sectionDesc: data.common.sections[id].description,
+            contactFormUrl: data.common.contactFormUrl,
+            socialText: data.common.texts.social_text,
+            socials: data.personal.socials
+        })
+    }
+
     componentDidMount() {
         window.addEventListener("resize", this.onResize.bind(this));
+        this.onResize();
     }
 
     componentWillUnmount() {
@@ -33,27 +53,32 @@ class Contact extends Component {
     }
 
     render() {
+
+        const socials = this.state.socials.map((entry, index) => (
+            <a href={entry.link} title={entry.name} key={index}><FontAwesomeIcon icon={["fab", entry.icon]} size="4x" /></a>
+        ))
+
         return (
             <section id="contact">
                 <div className="sectionTitle">
-                    <h1>Contact</h1>
+                    <h1>{this.state.sectionName}</h1>
                 </div>
 
                 <div className="sectionDesc">
-                    <p dangerouslySetInnerHTML={{ __html: "Lorem ipsum" }} />
+                    <p dangerouslySetInnerHTML={{ __html: this.state.sectionDesc }} />
 
-                    <iframe src="http://localhost:8080/form/portfolio" title="formContact" className="contactForm" style={{ transform: `scale(${this.state.formScale})` }} />
+                    <iframe src={this.state.contactFormUrl} title="formContact" className="contactForm" style={{ transform: `scale(${this.state.formScale})` }} />
 
-                    <p className="socialText">Lorem ipsum</p>
+                    <p className="socialText" dangerouslySetInnerHTML={{ __html: this.state.socialText }}/>
 
                     <div className="SocialIcons">
-                        <a href="#test" title="type"><FontAwesomeIcon icon={faUserAltSlash} size="4x" /></a>
+                        {socials}
                     </div>
                 </div>
 
                 <footer>
                     <div className={`footer-copyright text-center-py-3`}>
-                        <FontAwesomeIcon icon={faCopyright} /> {this.getCopyrightYear(2020)} by Marek Grzyb
+                        <FontAwesomeIcon icon={faCopyright} /> {this.getCopyrightYear(this.state.copyYear)} by {this.state.brand}
                     </div>
                 </footer>
             </section>
