@@ -16,9 +16,11 @@ class Preloader extends Component {
             .then(data => {
                 this.props.handler("common", data);
                 this.hidePreloader();
+            })
+            .catch((error) => {
+                this.props.handler("crash");
             });
     }
-    
 
     hidePreloader() {
         this.setState({ loaded: true });
