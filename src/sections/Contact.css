@@ -1,6 +1,7 @@
 #contact {
     background-color: rgba(33, 33, 33, 0.5);
     text-align: center;
+    width: 100%;
 }
 
 #contact .sectionTitle {
@@ -48,6 +49,6 @@ footer {
 
 .contactForm {
     border: none;
-    height: 500px;
+    height: 560px;
     width: 534px;
 }
