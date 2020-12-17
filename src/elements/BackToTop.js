@@ -29,7 +29,7 @@ class BackToTop extends Component {
 
     applyData(data) {
         this.setState({
-            icon: data.site.texts.back_to_top_icon
+            icon: data.common.texts.back_to_top_icon
         });
     }
 

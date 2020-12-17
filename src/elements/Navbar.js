@@ -40,8 +40,8 @@ class Navbar extends Component {
     applyData(data) {
         this.setState({
             brand: data.personal.name,
-            entries: data.site.sections,
-            hamburgerIcon: data.site.texts.hamburger_icon
+            entries: data.common.sections,
+            hamburgerIcon: data.common.texts.hamburger_icon
         });
     }
 

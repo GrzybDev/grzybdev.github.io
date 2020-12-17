@@ -17,8 +17,8 @@ class Experience extends Component {
     applyData(data, id) {
         this.setState({
             jobStatus: data.personal.jobStatus,
-            sectionName: data.site.sections[id].name,
-            sectionDesc: data.site.sections[id].description,
+            sectionName: data.common.sections[id].name,
+            sectionDesc: data.common.sections[id].description,
             characteristic: data.experience.characteristic,
             data: data.experience.data
         });

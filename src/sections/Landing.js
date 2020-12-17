@@ -26,9 +26,9 @@ class Landing extends Component {
         this.setState({
             name: data.personal.name,
             selfieUrl: data.personal.selfieUrl,
-            selfieAlt: data.site.texts.selfie_alternative,
-            signIcon: data.site.texts.arrow_up_icon,
-            signText: data.site.texts.selfie_caption,
+            selfieAlt: data.common.texts.selfie_alternative,
+            signIcon: data.common.texts.arrow_up_icon,
+            signText: data.common.texts.selfie_caption,
             proffesions: data.personal.proffesions,
             about: data.personal.about_me
         });
