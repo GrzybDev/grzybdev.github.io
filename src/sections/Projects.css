@@ -2,6 +2,7 @@
     background-color: rgba(33, 33, 33, 0.75);
     text-align: center;
     padding-bottom: 32px;
+    width: 100%;
 }
 
 #projects .sectionTitle {
@@ -32,6 +33,10 @@
     margin-right: 32px;
 }
 
+#projects .list .noProjects {
+    width: 100%;
+}
+
 #projects .entry {
     align-items: center;
     display: flex;
@@ -42,6 +47,7 @@
 }
 
 #projects .entry .tile {
+    color: white;
     height: 350px;
     width: 350px;
     border: 1.8px solid;
