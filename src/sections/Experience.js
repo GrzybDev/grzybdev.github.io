@@ -1,5 +1,5 @@
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import moment from "moment";
 import { Component } from "react";
 import Particles from "react-particles-js";
 import "./Experience.css"
@@ -11,7 +11,9 @@ class Experience extends Component {
         sectionName: "",
         sectionDesc: "",
         characteristic: [],
-        data: []
+        data: [],
+        counters: [],
+        projectCount: 0
     }
 
     applyData(data, id) {
@@ -20,7 +22,8 @@ class Experience extends Component {
             sectionName: data.common.sections[id].name,
             sectionDesc: data.common.sections[id].description,
             characteristic: data.experience.characteristic,
-            data: data.experience.data
+            data: data.experience.data,
+            counters: data.experience.counters
         });
     }
 
@@ -65,6 +68,48 @@ class Experience extends Component {
         }
     }
 
+    getConvertedDate(date) {
+        const startTime = moment(date, "DD-MM-YYYY");
+        const currentTime = moment();
+
+        const diffirence = {
+            year: currentTime.diff(startTime, "years"),
+            months: currentTime.diff(startTime, "months"),
+            days: currentTime.diff(startTime, "days"),
+            hours: currentTime.diff(startTime, "hours"),
+            minutes: currentTime.diff(startTime, "minutes"),
+            seconds: currentTime.diff(startTime, "seconds")
+        }
+
+        if (diffirence.year > 0)
+            return diffirence.year === 1 ? [diffirence.year, "year"] : [diffirence.year, "years"];
+        else if (diffirence.months > 0)
+            return diffirence.months === 1 ? [diffirence.months, "month"] : [diffirence.months, "months"];
+        else if (diffirence.days > 0)
+            return diffirence.days === 1 ? [diffirence.days, "day"] : [diffirence.days, "days"];
+        else if (diffirence.minutes > 0)
+            return diffirence.minutes === 1 ? [diffirence.minutes, "minute"] : [diffirence.minutes, "minutes"];
+        else
+            return diffirence.seconds === 1 ? [diffirence.seconds, "second"] : [diffirence.seconds, "seconds"];
+    }
+
+    getCounter(method, date) {
+        switch (method) {
+            case "projects":
+                return [this.state.projectCount, ""];
+            case "calendar":
+                return this.getConvertedDate(date);
+            default:
+                return [-1, ""];
+        }
+    }
+
+    updateProjectCount(add) {
+        this.setState({
+            projectCount: this.state.projectCount + add
+        });
+    }
+
     render() {
         if (this.state.sectionName === "") return null;
 
@@ -97,6 +142,17 @@ class Experience extends Component {
             </div>
         ));
 
+        const counters = this.state.counters.map((entry, index) => (
+            <div className="counter" key={index}>
+            <div className="counterIcon">
+                <FontAwesomeIcon icon={entry.icon} size="2x" />
+            </div>
+
+            <h4 className="number">{ this.getCounter(entry.method, entry.date)[0] }</h4>
+            <p className="title">{this.getCounter(entry.method, entry.date)[1] === "" ? entry.name : `${this.getCounter(entry.method, entry.date)[1]} ${entry.name}`}</p>
+        </div>
+        ));
+
         return (
             <section id="experience">
                 <div className="jobStatus">
@@ -127,14 +183,7 @@ class Experience extends Component {
                     <Particles className="bg" height="200px" width="100vw" />
 
                     <div className="main">
-                        <div className="counter">
-                            <div className="counterIcon">
-                                <FontAwesomeIcon icon={faCheck} size="2x" />
-                            </div>
-
-                            <h4 className="counter">-1</h4>
-                            <p className="title">test</p>
-                        </div>
+                        {counters}
                     </div>
                 </div>
             </section>
