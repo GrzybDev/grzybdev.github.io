@@ -140,6 +140,25 @@
     justify-content: center;
 }
 
+#experience .counters .counter {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+#experience .counters .counter p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#experience .counters .counter .number {
+    font-size: 1.5rem;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
 #experience .counterIcon {
     align-items: center;
     border: 4px white solid;
@@ -161,5 +180,8 @@
     #experience .content .right {
         border-left: unset;
         padding-left: unset;
+    }
+    #experience .jobStatus {
+        font-size: 1.5rem;
     }
 }
