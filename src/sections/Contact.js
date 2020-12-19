@@ -1,10 +1,10 @@
 import { faCopyright } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Component } from "react";
+import React from "react";
 import moment from "moment";
 import "./Contact.css";
 
-class Contact extends Component {
+class Contact extends React.Component {
 
     state = {
         brand: "",
@@ -36,8 +36,22 @@ class Contact extends Component {
     }
 
     componentDidMount() {
+        this.form = React.createRef();
+
         window.addEventListener("resize", this.onResize.bind(this));
+        window.addEventListener("message", this.messageHandler.bind(this));
+
         this.onResize();
+    }
+
+    messageHandler(e) {
+        switch (e.data) {
+            case "reloadForm":
+                this.form.current.src = this.state.contactFormUrl;
+                break;
+            default:
+                break
+        }
     }
 
     componentWillUnmount() {
@@ -67,7 +81,7 @@ class Contact extends Component {
                 <div className="sectionDesc">
                     <p dangerouslySetInnerHTML={{ __html: this.state.sectionDesc }} />
 
-                    <iframe src={this.state.contactFormUrl} title="formContact" className="contactForm" style={{ transform: `scale(${this.state.formScale})` }} />
+                    <iframe ref={this.form} src={this.state.contactFormUrl} title="formContact" className="contactForm" style={{ transform: `scale(${this.state.formScale})` }} />
 
                     <p className="socialText" dangerouslySetInnerHTML={{ __html: this.state.socialText }}/>
 
