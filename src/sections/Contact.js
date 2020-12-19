@@ -29,7 +29,7 @@ class Contact extends Component {
             copyYear: data.common.copyright,
             sectionName: data.common.sections[id].name,
             sectionDesc: data.common.sections[id].description,
-            contactFormUrl: data.common.contactFormUrl,
+            contactFormUrl: (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') ? "http://localhost:8080/form/portfolio" : data.common.contactFormUrl,
             socialText: data.common.texts.social_text,
             socials: data.personal.socials
         })
