@@ -1,12 +1,12 @@
 import Particles from "react-particles-js";
 import "./App.css";
-import Landing from "./sections/Landing";
-import Experience from "./sections/Experience";
-import Projects from "./sections/Projects";
-import Contact from "./sections/Contact";
-import Navbar from "./elements/Navbar";
-import BackToTop from "./elements/BackToTop";
-import Preloader from "./elements/Preloader";
+import Landing from "../sections/Landing";
+import Experience from "../sections/Experience";
+import Projects from "../sections/Projects";
+import Contact from "../sections/Contact";
+import Navbar from "../elements/Navbar";
+import BackToTop from "../elements/BackToTop";
+import Preloader from "../elements/Preloader";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas, faSadCry } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -67,13 +67,14 @@ class App extends React.Component {
     this.setState({ hasCrashed: true, crashReason: "renderError" })
   }
 
-  projectHandler(data) {
-    this.experienceRef.current.updateProjectCount(data);
+  projectHandler(add) {
+    this.experienceRef.current.updateProjectCount(add);
   }
 
   render() {
     if (this.state.hasCrashed) {
-      setTimeout(() => window.location.reload(), 1000 * 10);
+      if (!(!process.env.NODE_ENV || process.env.NODE_ENV === 'development'))
+        setTimeout(() => window.location.reload(), 1000 * 10)
 
       var errorDesc = "";
 
