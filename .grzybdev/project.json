@@ -1,0 +1,10 @@
+{
+    "description": "My Personal Website/Project Showcase and Portfolio.",
+    "highlights": [
+        "Built using React"
+    ],
+    "public": true,
+    "project_site": "https://grzybdev.github.io/",
+    "icon": "icon.png",
+    "show": true
+}
