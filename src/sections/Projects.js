@@ -25,13 +25,24 @@ class Projects extends Component {
             switch (entry.method) {
                 case "api":
                     fetch(`${API_SERVER}/portfolio/projects`)
-                        .then(response => (response.json()))
+                        .then(response => response.json())
                         .then(data => {
-                            this.props.projectHandler(data.length);
                             if (data.length === 0) return;
 
-                            newProjects[index] = data;
-                            this.setState({ projects: newProjects });
+                            newProjects[index] = []
+
+                            data.forEach((entry) => {
+                                fetch(`${API_SERVER}/portfolio/projects/${entry}`)
+                                .then(pResponse => pResponse.json())
+                                .then(pData => {
+                                    pData["icon"] = `${API_SERVER}/portfolio/projects/${entry}/${pData.icon}`;
+
+                                    if (pData["show"]) this.props.projectHandler(1);
+
+                                    newProjects[index].push(pData);
+                                    this.setState({ projects: newProjects });
+                                });
+                            });
                         });
                     break;
                 default:
@@ -41,13 +52,13 @@ class Projects extends Component {
     }
 
     renderBadges(badgesData) {
-        return badgesData.map((entry, index) => (
+        return badgesData?.map((entry, index) => (
             <div className="badge" style={{ backgroundColor: entry.color }} key={index}>{entry.text}</div>
         ));
     }
 
     renderHighlights(highlightsData) {
-        return highlightsData.map((entry, index) => (
+        return highlightsData?.map((entry, index) => (
             <li key={index}>{entry}</li>
         ));
     }
@@ -55,11 +66,13 @@ class Projects extends Component {
     renderProjects(id) {
         if (!this.state.projects[id]) return (<h1 className="noProjects" dangerouslySetInnerHTML={{ __html: `No projects found!<br/>Please check again later` }} />);
 
-        return this.state.projects[id].map((entry, index) => (
-            <div className="entry">
-                <a href={`/project/${entry.id}`}>
+        return this.state.projects[id].map((entry, index) => {
+             if (!entry.show) return "";
+
+             return (<div className="entry">
+                <a href={`/project/${entry.name}`}>
                     <div className="tile" key={index}>
-                        <div className="bg" style={{ backgroundImage: `url('${entry.tile}')` }} />
+                        <div className="bg" style={{ backgroundImage: `url('${entry.icon}')` }} />
                         <div className="tileTitle">
                             {entry.name}
                         </div>
@@ -77,13 +90,13 @@ class Projects extends Component {
                 <br />
 
                 <div className="highlights">
-                    <p>Highlights:</p>
+                    {this.renderHighlights(entry.highlights) ? <p>Highlights:</p> : ""}
                     <ul>
                         {this.renderHighlights(entry.highlights)}
                     </ul>
                 </div>
-            </div>
-        ));
+            </div>)
+        });
     }
 
     render() {
@@ -98,7 +111,7 @@ class Projects extends Component {
                 <br />
 
                 <div className="list">
-                    {this.renderProjects(index)}
+                    {this.state.projects[index] ? this.renderProjects(index) : ""}
                 </div>
             </div>
         ));
