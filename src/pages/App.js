@@ -37,6 +37,16 @@ class App extends React.Component {
   }
 
   loadData(type, data) {
+    if (data?.error) {
+      this.setState({
+        crashReason: "backendError",
+        backend_error: data.message,
+        hasCrashed: true
+      });
+
+      return;
+    }
+
     try {
       switch (type) {
         case "common": {
@@ -88,6 +98,9 @@ class App extends React.Component {
         case "renderError":
           errorDesc = "There was an error trying to render some component.";
           break;
+        case "backendError":
+          errorDesc = this.state.backend_error;
+          break;
         default:
           errorDesc = "Unknown error."
           break;
@@ -97,7 +110,7 @@ class App extends React.Component {
         <main className="crash">
           <FontAwesomeIcon icon={faSadCry} size="4x" />
           <h1>Oh no! Something terrible happened!</h1>
-          <p>{ `${errorDesc} Please try again later.`}</p>
+          <p>{ `${errorDesc}${this.state.crashReason === "backendError" ? "" : " Please try again later."}`}</p>
           <p>This page will automatically refresh after 10 seconds...</p>
         </main>
       )
