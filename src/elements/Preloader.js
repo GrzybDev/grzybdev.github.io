@@ -20,11 +20,20 @@ class Preloader extends Component {
             .catch((error) => {
                 this.props.handler("crash");
             });
+        
+        window.addEventListener("beforeunload", this.onBeforeUnload.bind(this));
     }
 
     hidePreloader() {
         this.setState({ loaded: true });
         setTimeout(() => this.setState({ addClass: "hidden" }), 500);
+    }
+
+    onBeforeUnload() {
+        this.setState({
+            loaded: false,
+            addClass: ""
+        });
     }
 
     render() {
