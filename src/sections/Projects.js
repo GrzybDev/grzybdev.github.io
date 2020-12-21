@@ -69,7 +69,7 @@ class Projects extends Component {
         return this.state.projects[id].map((entry, index) => {
              if (!entry.show) return "";
 
-             return (<div className="entry">
+             return (<div className="entry" key={index}>
                 <a href={`?/project/${entry.name}`}>
                     <div className="tile" key={index}>
                         <div className="bg" style={{ backgroundImage: `url('${entry.icon}')` }} />
