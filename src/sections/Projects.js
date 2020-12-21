@@ -70,7 +70,7 @@ class Projects extends Component {
              if (!entry.show) return "";
 
              return (<div className="entry">
-                <a href={`/project/${entry.name}`}>
+                <a href={`?/project/${entry.name}`}>
                     <div className="tile" key={index}>
                         <div className="bg" style={{ backgroundImage: `url('${entry.icon}')` }} />
                         <div className="tileTitle">
