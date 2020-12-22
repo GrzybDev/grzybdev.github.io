@@ -25,6 +25,7 @@
 .project .badges {
     align-items: center;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin-top: 8px;
 }
@@ -41,6 +42,13 @@
 
 .project .highlights {
     text-align: left;
+}
+
+.project .buttons {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .project .btn {
@@ -66,4 +74,29 @@
 .project .btn.disabled {
     color: lightgrey;
     pointer-events: none;
+}
+
+#contact {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .project {
+        width: 100%;
+    }
+    .project .head {
+        justify-content: unset;
+    }
+    .project .badges {
+        justify-content: unset;
+    }
+    .project p {
+        text-align: left;
+    }
+    .project hr {
+        width: 75%;
+    }
+    .project .buttons {
+        justify-content: unset;
+    }
 }

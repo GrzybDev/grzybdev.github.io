@@ -94,7 +94,10 @@
 }
 
 #projects .entry .badges {
+    align-items: center;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: 8px;
 }
 
@@ -127,5 +130,12 @@
     }
     #projects .entry .tile .tileTitle {
         width: 250px;
+    }
+    #projects .subsection .title {
+        font-size: 2rem;
+    }
+    #projects .list {
+        margin-left: 0px;
+        margin-right: 0px;
     }
 }

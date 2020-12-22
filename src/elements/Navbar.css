@@ -59,7 +59,7 @@ nav .hamburger {
         display: flex;
         flex-direction: column;
         position: absolute;
-        left: 0;
+        left: -50px;
         top: -256px;
         transition-duration: 500ms;
         z-index: -1;
@@ -79,13 +79,13 @@ nav .hamburger {
         background-color: rgb(17, 17, 17);
     }
     nav .branding {
-        display: none;
+        pointer-events: none;
     }
     nav .hamburger {
         display: block;
         position: fixed;
-        left: 32px;
-        top: 16px;
+        right: 32px;
+        top: 22px;
         transition-duration: 500ms;
     }
     nav .hamburger.active {

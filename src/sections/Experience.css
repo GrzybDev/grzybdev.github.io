@@ -87,6 +87,7 @@
 
 #experience .content .characteristic .lang p {
     margin-left: 16px;
+    margin-right: 16px;
     margin-top: 0px;
     margin-bottom: 0px;
     font-weight: bold;
@@ -98,6 +99,7 @@
 }
 
 #experience .content .characteristic .lang img {
+    height: 32px;
     width: 32px;
 }
 
@@ -183,5 +185,17 @@
     }
     #experience .jobStatus {
         font-size: 1.5rem;
+    }
+    #experience .content {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+    #experience .content .characteristic .lang p {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+    #experience .content .characteristic .lang .status {
+        font-size: 1rem;
     }
 }
