@@ -88,6 +88,7 @@ class ProjectSite extends Component {
                     </div>
                     <hr />
                     <p dangerouslySetInnerHTML={{ __html: this.state.description }} />
+                    { this.state.license ? <p>{`Licensed under: ${this.state.license}`}</p> : null }
                     <div className="highlights">
                         {this.renderHighlights(this.state.highlights) ? <p>Highlights:</p> : ""}
                         <ul>
