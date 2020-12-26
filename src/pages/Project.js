@@ -10,6 +10,7 @@ import Contact from "../sections/Contact";
 import "./Project.css";
 import { API_SERVER } from "../config";
 import { useParams } from "react-router-dom";
+import Crash from "./Crash";
 
 class ProjectSite extends Component {
 
@@ -29,6 +30,16 @@ class ProjectSite extends Component {
     }
 
     loadData(type, data) {
+        if (data?.error) {
+            this.setState({
+                crashReason: "backendError",
+                backend_error: data.message,
+                hasCrashed: true
+            });
+
+            return;
+        }
+
         try {
             switch (type) {
                 case "common": {
@@ -38,6 +49,10 @@ class ProjectSite extends Component {
                     this.contactRef.current.applyData(data, 3);
 
                     window.scrollTo(0, 0);
+                    break;
+                }
+                case "project": {
+                    this.setState({ ...data });
                     break;
                 }
                 default:
@@ -55,8 +70,15 @@ class ProjectSite extends Component {
             .then(pResponse => pResponse.json())
             .then(pData => {
                 pData["icon"] = `${API_SERVER}/portfolio/projects/${this.projectId}/${pData.icon}`;
-                this.setState({ ...pData });
-            });
+                this.loadData("project", pData);
+            })
+            .catch(() => {
+                this.loadData("crash");
+            })
+    }
+
+    componentDidCatch() {
+        this.setState({ hasCrashed: true, crashReason: "renderError" })
     }
 
     renderBadges(badgesData) {
@@ -72,6 +94,8 @@ class ProjectSite extends Component {
     }
 
     render() {
+        if (this.state.hasCrashed) return <Crash reason={this.state.crashReason} desc={this.state.backend_error} />
+
         return (
             <main>
                 <Navbar ref={this.navbarRef} />
@@ -88,7 +112,7 @@ class ProjectSite extends Component {
                     </div>
                     <hr />
                     <p dangerouslySetInnerHTML={{ __html: this.state.description }} />
-                    { this.state.license ? <p>{`Licensed under: ${this.state.license}`}</p> : null }
+                    {this.state.license ? <p>{`Licensed under: ${this.state.license}`}</p> : null}
                     <div className="highlights">
                         {this.renderHighlights(this.state.highlights) ? <p>Highlights:</p> : ""}
                         <ul>
