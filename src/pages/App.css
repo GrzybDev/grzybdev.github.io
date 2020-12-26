@@ -12,13 +12,3 @@
     z-index: 1;
     width: 100%;
 }
-
-.crash {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    text-align: center;
-    width: 100vw;
-}
