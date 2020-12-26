@@ -10,14 +10,22 @@ class Preloader extends Component {
         addClass: ""
     }
 
+    constructor(props) {
+        super(props);
+
+        this.withoutBackend = this.props.withoutBackend;
+    }
+
     componentDidMount() {
+        if (this.withoutBackend) return;
+
         fetch(`${API_SERVER}/portfolio/common`)
             .then(response => response.json())
             .then(data => {
                 this.props.handler("common", data);
                 this.hidePreloader();
             })
-            .catch((error) => {
+            .catch(() => {
                 this.props.handler("crash");
             });
         
