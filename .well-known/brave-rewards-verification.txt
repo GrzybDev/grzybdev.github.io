@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: grzybdev.github.io
+Token: e7e7b05971b7a94a0a1cc95f624d8df4262d978b661cd056a849cb3101afc27c
